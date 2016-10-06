@@ -12,3 +12,9 @@ Updating f6d679d..7d465b0
 Fast-forward
  index.html | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
+[gh-pages fb79995] html daily update
+ 6 files changed, 12 insertions(+), 64 deletions(-)
+ delete mode 100644 html/last_monday.html
+Branch gh-pages set up to track remote branch gh-pages from origin.
+Thu  6 Oct 20:30:01 CEST 2016
+Already up-to-date.
