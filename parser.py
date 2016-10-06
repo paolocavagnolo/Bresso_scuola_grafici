@@ -14,7 +14,7 @@ import plotly.tools as pyt
 pyt.set_credentials_file(username='paoloc', api_key='ee28u45bns')
 
 def readFromFile():
-  arduFile = "energyBuffer.log"
+  arduFile = "~/Documents/energyBuffer.log"
   lines = []
   try:
       with open(arduFile, "r") as f:
