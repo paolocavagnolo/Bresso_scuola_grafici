@@ -237,7 +237,7 @@ layout = dict(title = 'Confronto consumi settimana attuale e settimana passata',
               )
 
 fig = dict(data=data, layout=layout)
-plotly.offline.plot(fig, filename = 'week_last_week.html')
+plotly.offline.plot(fig, filename = 'html/week_last_week.html')
 
 ## Year vs. Last Year
 data = Data([traceTHISYEARSUM,traceLASTYEARSUM])
@@ -248,7 +248,7 @@ layout = dict(title = 'Confronto consumi anno attuale e anno passato',
               )
 
 fig = dict(data=data, layout=layout)
-plotly.offline.plot(fig, filename = 'year_last_year.html')
+plotly.offline.plot(fig, filename = 'html/year_last_year.html')
 
 ## Last week: General vs. Kitchen
 data = Data([traceLASTWEEK,traceLASTWEEK2])
@@ -259,7 +259,7 @@ layout = dict(title = 'Consumo elettrico giornaliero, da Lunedi ' + p_last_week_
               )
 
 fig = dict(data=data, layout=layout)
-plotly.offline.plot(fig, filename = 'ground_vs_kitchen.html')
+plotly.offline.plot(fig, filename = 'html/ground_vs_kitchen.html')
 
 ## Yesterday!
 data = Data([traceYESTERDAY,traceYESTERDAY2])
@@ -270,4 +270,4 @@ layout = dict(title = 'Consumo elettrico durante il ' + yesterday.strftime("%d/%
               )
 
 fig = dict(data=data, layout=layout)
-plotly.offline.plot(fig, filename = 'yesterday.html')
+plotly.offline.plot(fig, filename = 'html/yesterday.html')
