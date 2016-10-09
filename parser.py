@@ -93,7 +93,8 @@ p_this_week_s = p_this_week_s.replace(hour=00,minute=00,second=00,microsecond=00
 
 last_week = now - dateu.relativedelta(days=7)
 
-p_last_week_s = last_week.replace(last_week.year,last_week.month,last_week.day - last_week.weekday(),hour=00,minute=00,second=00,microsecond=00)
+p_last_week_s = last_week - dateu.relativedelta(days=last_week.weekday())
+p_last_week_s = p_last_week_s.replace(p_last_week_s.year,p_last_week_s.month,p_last_week_s.day,hour=00,minute=00,second=00,microsecond=00)
 p_last_week_e = p_last_week_s + dateu.relativedelta(days=6)
 p_last_week_e = p_last_week_e.replace(hour=23,minute=59,second=59,microsecond=9999)
 
@@ -116,6 +117,9 @@ last_Y2 = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
 
 yest = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
 yest2 = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+
+total = 0.0
+total2 = 0.0
 
 # Selezione delle x solamente dell'ultima settimana
 # scorsa settimana
@@ -146,6 +150,9 @@ for x in xA:
     if d0.year == last_year.year:
         last_Y[d0.month-1] = last_Y[d0.month-1] + 0.001
 
+    ## total
+    total = total + 0.001
+
     i = i + 1
 
 i = 0
@@ -173,7 +180,8 @@ for x in xB:
     if d0.year == last_year.year:
         last_Y2[d0.month-1] = last_Y2[d0.month-1] + 0.001
 
-
+    ## total2
+    total2 = total2 + 0.001
 
     i = i + 1
 
@@ -228,6 +236,17 @@ traceLASTYEARSUM = go.Bar(
     name='Anno scorso'
 )
 
+## Yesterday!
+data = Data([traceYESTERDAY,traceYESTERDAY2])
+layout = dict(title = 'Consumo elettrico durante il ' + yesterday.strftime("%d/%m/%y"),
+              xaxis = dict(title = 'ore del giorno'),
+              yaxis = dict(title = 'kWh'),
+              barmode='stack'
+              )
+
+fig = dict(data=data, layout=layout)
+plotly.offline.plot(fig, filename = 'html/yesterday.html')
+
 ## Week vs. Last Week
 data = Data([traceTHISWEEKSUM,traceLASTWEEKSUM])
 layout = dict(title = 'Confronto consumi settimana attuale e settimana passata',
@@ -237,7 +256,7 @@ layout = dict(title = 'Confronto consumi settimana attuale e settimana passata',
               )
 
 fig = dict(data=data, layout=layout)
-plotly.offline.plot(fig, filename = 'html/week_last_week.html')
+# plotly.offline.plot(fig, filename = 'week_last_week.html')
 
 ## Year vs. Last Year
 data = Data([traceTHISYEARSUM,traceLASTYEARSUM])
@@ -250,24 +269,19 @@ layout = dict(title = 'Confronto consumi anno attuale e anno passato',
 fig = dict(data=data, layout=layout)
 plotly.offline.plot(fig, filename = 'html/year_last_year.html')
 
-## Last week: General vs. Kitchen
-data = Data([traceLASTWEEK,traceLASTWEEK2])
-layout = dict(title = 'Consumo elettrico giornaliero, da Lunedi ' + p_last_week_s.strftime("%d/%m/%y") + ' a Venerdi ' + p_last_week_e.strftime("%d/%m/%y"),
-              xaxis = dict(title = 'Mesi'),
-              yaxis = dict(title = 'kWh'),
-              barmode='stack'
-              )
+## Pie and generale
+labels = ['Piano Terra','Cucina']
+values = [total,total2]
+
+tracePIE = go.Pie(
+    labels = labels,
+    values = values,
+    hole = .4,
+    )
+
+data = Data([tracePIE])
+
+layout = dict(title = "Consumi totali")
 
 fig = dict(data=data, layout=layout)
-plotly.offline.plot(fig, filename = 'html/ground_vs_kitchen.html')
-
-## Yesterday!
-data = Data([traceYESTERDAY,traceYESTERDAY2])
-layout = dict(title = 'Consumo elettrico durante il ' + yesterday.strftime("%d/%m/%y"),
-              xaxis = dict(title = 'ore del giorno'),
-              yaxis = dict(title = 'kWh'),
-              barmode='stack'
-              )
-
-fig = dict(data=data, layout=layout)
-plotly.offline.plot(fig, filename = 'html/yesterday.html')
+plotly.offline.plot(fig, filename = 'html/pie.html')
