@@ -87,17 +87,21 @@ for y in yB:
 now = datetime.now()
 
 yesterday = now - dateu.relativedelta(days=1)
+print "Yesterday: " + str(yesterday)
 
 p_this_week_s = now - dateu.relativedelta(days=now.weekday())
 p_this_week_s = p_this_week_s.replace(hour=00,minute=00,second=00,microsecond=00)
+print "p_this_week_s: " + str(p_this_week_s)
 
 last_week = now - dateu.relativedelta(days=7)
 
 p_last_week_s = last_week - dateu.relativedelta(days=last_week.weekday())
 p_last_week_s = p_last_week_s.replace(p_last_week_s.year,p_last_week_s.month,p_last_week_s.day,hour=00,minute=00,second=00,microsecond=00)
+print "p_last_week_s: " + str(p_last_week_s)
+
 p_last_week_e = p_last_week_s + dateu.relativedelta(days=6)
 p_last_week_e = p_last_week_e.replace(hour=23,minute=59,second=59,microsecond=9999)
-
+print "p_last_week_e: " + str(p_last_week_e)
 
 last_year = now - dateu.relativedelta(year=1)
 
@@ -184,6 +188,9 @@ for x in xB:
     total2 = total2 + 0.001
 
     i = i + 1
+
+print "Total: " + str(total)
+print "Total2: " + str(total2)
 
 this_W_SUM = [this_W[i]+this_W2[i] for i in xrange(len(this_W))]
 last_W_SUM = [last_W[i]+last_W2[i] for i in xrange(len(last_W))]
