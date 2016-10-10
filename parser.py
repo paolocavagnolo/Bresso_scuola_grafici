@@ -137,11 +137,12 @@ for x in xA:
     except:
         d0 = datetime.strptime(x, '%Y-%m-%d %H:%M:%S')
 
+    if d0.day == yesterday.day:
+            yest[d0.hour] = yest[d0.hour] + 0.001
+
     if d0 >= p_this_week_s:
         # sono nei giorni di questa settimana
         this_W[d0.weekday()] = this_W[d0.weekday()] + 0.001
-        if d0.day == yesterday.day:
-            yest[d0.hour] = yest[d0.hour] + 0.001
 
     if d0 >= p_last_week_s and d0 <= p_last_week_e:
         # sono nei giorni della scorsa settimana
