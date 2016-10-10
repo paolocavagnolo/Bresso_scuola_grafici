@@ -256,7 +256,7 @@ layout = dict(title = 'Confronto consumi settimana attuale e settimana passata',
               )
 
 fig = dict(data=data, layout=layout)
-plotly.offline.plot(fig, filename = 'week_last_week.html')
+plotly.offline.plot(fig, filename = 'html/week_last_week.html')
 
 ## Year vs. Last Year
 data = Data([traceTHISYEARSUM,traceLASTYEARSUM])
