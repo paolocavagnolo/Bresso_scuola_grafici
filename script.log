@@ -151,3 +151,14 @@ p_last_week_s: 2016-10-03 00:00:00
 p_last_week_e: 2016-10-09 23:59:59.009999
 Total: 412.023999997
 Total2: 29.819
+[gh-pages fc9c00f] html daily update
+ 5 files changed, 15 insertions(+), 4 deletions(-)
+Branch gh-pages set up to track remote branch gh-pages from origin.
+Sat 15 Oct 12:30:01 CEST 2016
+Already up-to-date.
+Yesterday: 2016-10-14 12:30:26.634059
+p_this_week_s: 2016-10-10 00:00:00
+p_last_week_s: 2016-10-03 00:00:00
+p_last_week_e: 2016-10-09 23:59:59.009999
+Total: 412.023999997
+Total2: 29.819
