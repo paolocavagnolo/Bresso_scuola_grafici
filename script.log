@@ -754,3 +754,12 @@ p_last_week_s: 2016-11-07 00:00:00
 p_last_week_e: 2016-11-13 23:59:59.009999
 Total: 1040.65599998
 Total2: 71.997
+[gh-pages 49ace81] html daily update
+ 5 files changed, 13 insertions(+), 4 deletions(-)
+Thu 17 Nov 12:30:01 CET 2016
+Yesterday: 2016-11-16 12:31:14.738736
+p_this_week_s: 2016-11-14 00:00:00
+p_last_week_s: 2016-11-07 00:00:00
+p_last_week_e: 2016-11-13 23:59:59.009999
+Total: 1057.20299998
+Total2: 73.216
