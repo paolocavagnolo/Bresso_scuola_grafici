@@ -1659,3 +1659,10 @@ Yesterday: 2017-01-15 12:31:43.621585
 p_this_week_s: 2017-01-16 00:00:00
 p_last_week_s: 2017-01-09 00:00:00
 p_last_week_e: 2017-01-15 23:59:59.009999
+[gh-pages f23f81c] html daily update
+ 1 file changed, 7 insertions(+)
+Mon 16 Jan 20:30:01 CET 2017
+Yesterday: 2017-01-15 20:31:43.622511
+p_this_week_s: 2017-01-16 00:00:00
+p_last_week_s: 2017-01-09 00:00:00
+p_last_week_e: 2017-01-15 23:59:59.009999
